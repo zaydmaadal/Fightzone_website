@@ -55,38 +55,91 @@
     </div>
   </section>
 
-  <!-- Voor wie -->
   <section id="voor-wie" class="section light">
     <div class="container">
-      <h2>Voor wie is deze app?</h2>
-      <ul class="audience-list">
-        <li>🏋️‍♂️ Trainers die snel info willen updaten</li>
-        <li>🏢 Clubs die orde willen in ledenbeheer</li>
-        <li>🏛 Federaties die digitale controle nodig hebben</li>
-        <li>🥋 Vechters die hun vooruitgang willen volgen</li>
-      </ul>
+      <h2>Voor wie is deze app bedoeld?</h2>
+      <div class="audience-grid">
+        <div class="audience-box">
+          <h3>👊 Voor Trainers</h3>
+          <p>Hou al je vechters overzichtelijk bij. Check gewichten, plan trainingen en communiceer met je team in één app.</p>
+        </div>
+        <div class="audience-box">
+          <h3>🏢 Voor Clubs</h3>
+          <p>Centraliseer je ledenbeheer, volg licenties en beheer je clubadministratie zonder gedoe.</p>
+        </div>
+        <div class="audience-box">
+          <h3>🏛 Voor Federaties</h3>
+          <p>Bekijk club- en vechtersdata in real time, volg licentiestatussen op en controleer wie er actief is.</p>
+        </div>
+        <div class="audience-box">
+          <h3>🥋 Voor Vechters</h3>
+          <p>Bekijk je records, komende wedstrijden, en blijf op de hoogte van je prestaties en klasse.</p>
+        </div>
+      </div>
     </div>
   </section>
+  
 
-  <!-- Testimonials -->
-  <section id="reviews" class="section">
+ 
+
+  <section id="reviews" class="section testimonials-section">
     <div class="container">
-      <h2>Wat zeggen gebruikers?</h2>
-      <div class="testimonial">
-        <p>“Eindelijk structuur! We gebruiken de app nu 4 maanden en het scheelt ons uren administratie per week.”</p>
-        <h4>– Britt van Vugt, clubmanager</h4>
+      <h2>Wat zeggen onze gebruikers?</h2>
+      
+      <div class="testimonial-grid">
+        <div class="testimonial-card">
+          <p>“Sinds we deze tool gebruiken, is onze administratie volledig gedigitaliseerd. Alles is overzichtelijk, snel én eenvoudig. Een must-have voor elke club.”</p>
+          <h4>Britt van Vugt</h4>
+          <span>Clubmanager</span>
+        </div>
+  
+        <div class="testimonial-card">
+          <p>“Als trainer zie ik in één oogopslag wie aanwezig is, wie klaar is voor competitie en hoe mijn vechters presteren. Super intuïtieve app.”</p>
+          <h4>Yassine El Mahi</h4>
+          <span>Hoofdtrainer</span>
+        </div>
+  
+        <div class="testimonial-card">
+          <p>“We besparen tijd én fouten. Geen Excel meer, geen papieren licenties. Alles gebeurt centraal in de app.”</p>
+          <h4>Marijke Lens</h4>
+          <span>Federatiebeheerder</span>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- Contact -->
   <section id="contact" class="section light">
     <div class="container">
-      <h2>Contacteer ons</h2>
-      <p>Heb je een vraag, wil je samenwerken of ben je geïnteresseerd in een demo? Stuur ons een bericht!</p>
-      <a href="mailto:info@fightzone.app" class="btn btn-primary">Stuur e-mail</a>
+      <h2>Neem contact op</h2>
+      <p>Heb je een vraag of wil je samenwerken? Laat hier je bericht achter en we nemen zo snel mogelijk contact met je op.</p>
+  
+      <form class="contact-form" action="mailto:info@fightzone.app" method="POST" enctype="text/plain">
+        <div class="form-group">
+          <label for="name">Naam</label>
+          <input type="text" id="name" name="name" required />
+        </div>
+  
+        <div class="form-group">
+          <label for="email">E-mailadres</label>
+          <input type="email" id="email" name="email" required />
+        </div>
+  
+        <div class="form-group">
+          <label for="subject">Onderwerp</label>
+          <input type="text" id="subject" name="subject" />
+        </div>
+  
+        <div class="form-group">
+          <label for="message">Bericht</label>
+          <textarea id="message" name="message" rows="5" required></textarea>
+        </div>
+  
+        <button type="submit" class="btn btn-primary">Verzenden</button>
+      </form>
     </div>
   </section>
+  
+  
 
   <!-- Footer -->
   <footer class="footer">
