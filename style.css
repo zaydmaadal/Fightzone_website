@@ -144,7 +144,7 @@ ul {
 
 /* Improved navigation */
 .navbar {
-  background-color: #3683fe;
+  background-color: var(--light-dark);
   padding: 0.75rem 0;
   position: sticky;
   top: 0;
@@ -270,7 +270,7 @@ ul {
 /* Improved hero section */
 .hero {
   background-color: #f9f9f9;
-  padding: var(--spacing-lg) 0;
+  padding: var(--spacing-lg) 1rem;
 }
 
 .hero-content {
@@ -466,11 +466,14 @@ ul {
   transition: all 0.2s ease;
   white-space: nowrap;
   height: 100%;
+  border: 2px solid rgba(32, 32, 32, 1);
+  font-size: 1em;
 }
 
 .btn-newsletter:hover {
-  background-color: white;
-  color: var(--primary);
+  background-color: rgba(32, 32, 32, 1);
+  color: white;
+  border: 2px solid var(--primary);
 }
 
 /* Social section */
@@ -595,49 +598,73 @@ ul {
     text-align: center;
   }
 }
-
 .lead-popup {
   position: fixed;
-  bottom: 20px;
   right: 20px;
+  bottom: -100%;
   background: white;
   padding: 25px;
   border-radius: 12px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
   z-index: 1000;
-  transform: translateY(0%);
-  transition: transform 0.4s ease-out;
+  width: 90%;
   max-width: 350px;
-  border: 1px solid var(--primary);
+  border: 2px solid var(--primary);
+  opacity: 0;
+  transition: bottom 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55),
+    opacity 0.3s ease;
 }
 
 .lead-popup.active {
-  transform: translateY(0);
+  bottom: 20px;
+  opacity: 1;
+}
+
+.popup-content {
+  position: relative;
+}
+.popup-content p {
+  margin-bottom: 0;
 }
 
 .popup-content h3 {
-  color: var(--primary);
-  margin-top: 0;
+  margin-top: 0px;
 }
 
 .close-popup {
   position: absolute;
-  top: 10px;
-  right: 10px;
-  background: none;
+  right: -15px;
+  background: var(--primary);
+  color: white;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
   border: none;
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .popup-form {
   display: flex;
   flex-direction: column;
   gap: 12px;
+  margin-top: 15px;
 }
 
 .popup-form input {
   padding: 12px;
   border: 1px solid #ddd;
   border-radius: 6px;
+  font-size: 0.95rem;
+}
+
+@media (max-width: 768px) {
+  .lead-popup {
+    right: 50%;
+    transform: translateX(50%);
+    width: calc(100% - 40px);
+  }
 }
