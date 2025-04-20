@@ -430,6 +430,10 @@ ul {
   gap: 1.5rem;
 }
 
+body .testB {
+  background-color: red;
+}
+
 .footer-newsletter h3 {
   color: white;
   font-size: 1.1rem;

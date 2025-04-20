@@ -1,7 +1,25 @@
 document.addEventListener("DOMContentLoaded", function () {
+  const isVariantB = document.body.classList.contains("variant-b");
   const popup = document.getElementById("leadPopup");
+  const overlay = isVariantB
+    ? document.getElementById("leadPopupOverlay")
+    : null;
   const closeBtn = document.getElementById("closePopup");
 
+  function showPopup() {
+    popup.classList.add("active");
+    if (isVariantB) overlay.classList.add("active");
+  }
+
+  function hidePopup() {
+    popup.classList.remove("active");
+    if (isVariantB) overlay.classList.remove("active");
+  }
+
+  // Sluiten bij klik overlay (alleen Variant B)
+  if (isVariantB) {
+    overlay.addEventListener("click", hidePopup);
+  }
   // Cookie helpers
   function setCookie(name, value, days) {
     const date = new Date();
