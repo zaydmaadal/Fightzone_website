@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", function () {
-  const isVariantB = document.body.classList.contains("variant-b");
   const popup = document.getElementById("leadPopup");
+  const closeBtn = document.getElementById("closePopup");
 
   // Cookie helpers
   function setCookie(name, value, days) {
@@ -41,35 +41,20 @@ document.addEventListener("DOMContentLoaded", function () {
     .addEventListener("submit", async function (e) {
       e.preventDefault();
       const email = this.querySelector('input[type="email"]').value;
-
-      // Check if email is already submitted
-      const submitted = JSON.parse(
-        localStorage.getItem("subscribedEmails") || "[]"
-      );
-      if (submitted.includes(email)) {
-        alert("Je bent al ingeschreven!");
-        return;
-      }
-
       try {
         const response = await fetch(
-          "https://script.google.com/macros/s/AKfycbwKBoHqOjKmL2ncLmyUpd-VIG99ovCVMPxoFsIannANZE2IpLPSliA1IqYV-0EZk8-CIA/exec",
+          "https://script.google.com/macros/s/AKfycbyZJKBcwD0dTrZ6ix6juOf0V3xjkxALE7wooUVKUaX3OOSh2_oMqHICxiGQfsW1GHME1w/exec",
           {
             method: "POST",
-            mode: "no-cors", // Add this to handle CORS
             body: JSON.stringify({ email: email }),
-            headers: {
-              "Content-Type": "application/json",
-              Accept: "application/json",
-            },
+            headers: { "Content-Type": "application/json" },
           }
         );
 
-        // Since we're using no-cors, we can't read the response
-        // So we'll assume success and update local storage
-        setSubmittedEmail(email);
-        alert("Bedankt voor je inschrijving!");
-        popup.classList.remove("active");
+        if ((await response.text()) === "Duplicate") {
+          alert("Dit e-mailadres is al ingeschreven!");
+          return;
+        }
 
         if (window.dataLayer) {
           window.dataLayer.push({
@@ -78,11 +63,9 @@ document.addEventListener("DOMContentLoaded", function () {
           });
         }
       } catch (error) {
-        console.error("Error:", error);
         alert("Oeps! Er ging iets mis. Probeer het later opnieuw.");
       }
     });
-
   function setSubmittedEmail(email) {
     const submitted = JSON.parse(
       localStorage.getItem("subscribedEmails") || []
@@ -91,5 +74,12 @@ document.addEventListener("DOMContentLoaded", function () {
       submitted.push(email);
       localStorage.setItem("submittedEmails", JSON.stringify(submitted));
     }
+  }
+
+  // Voeg toe voor het versturen:
+  const submitted = JSON.parse(localStorage.getItem("subscribedEmails") || []);
+  if (submitted.includes(email)) {
+    alert("Je bent al ingeschreven!");
+    return;
   }
 });

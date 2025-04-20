@@ -144,7 +144,7 @@ ul {
 
 /* Improved navigation */
 .navbar {
-  background-color: var(--light-dark);
+  background-color: var(--text-dark);
   padding: 0.75rem 0;
   position: sticky;
   top: 0;
@@ -430,10 +430,6 @@ ul {
   gap: 1.5rem;
 }
 
-body .testB {
-  background-color: red;
-}
-
 .footer-newsletter h3 {
   color: white;
   font-size: 1.1rem;
@@ -470,14 +466,11 @@ body .testB {
   transition: all 0.2s ease;
   white-space: nowrap;
   height: 100%;
-  border: 2px solid rgba(32, 32, 32, 1);
-  font-size: 1em;
 }
 
 .btn-newsletter:hover {
-  background-color: rgba(32, 32, 32, 1);
-  color: white;
-  border: 2px solid var(--primary);
+  background-color: white;
+  color: var(--primary);
 }
 
 /* Social section */
